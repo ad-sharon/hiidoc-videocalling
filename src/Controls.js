@@ -38,6 +38,14 @@ export default function Controls(props) {
     setInCall(false);
   };
 
+  // const audio_mute = document.getElementById("audio_mute");
+  // audio_mute.addEventListener("click", () => {
+  //   if (audio_mute.textContent === "Mute audio") {
+  //     audio_mute.textContent = "Unmute audio";
+  //   } else {
+  //     audio_mute.textContent = "Mute audio";
+  //   }
+  // });
   //output
   return (
     <div>
@@ -54,7 +62,9 @@ export default function Controls(props) {
       >
         Leave
       </Button>
+
       <Button
+        id="audio_mute"
         borderRadius="0rem"
         bgColor="#004887"
         mx="1rem"
@@ -63,7 +73,7 @@ export default function Controls(props) {
         color={trackState.audio ? "#fff" : "#000"}
         onClick={() => mute("audio")}
       >
-        Mute Audio
+        {trackState.audio ? "Mute Audio" : "Unmute audio"}
       </Button>
       <Button
         borderRadius="0rem"
@@ -74,7 +84,7 @@ export default function Controls(props) {
         color={trackState.video ? "#fff" : "#000"}
         onClick={() => mute("video")}
       >
-        Turn Off Video
+        {trackState.video ? "Turn Off Video" : "Turn On Video"}
       </Button>
     </div>
   );
